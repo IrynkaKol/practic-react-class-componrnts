@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://IrynkaKol.github.io/practic-react-class-componrnts /",
+  "homepage": "https://IrynkaKol.github.io/practic-react-class-componrnts/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
