@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Counter from './Counter';
 import Dropdown from './Dropdown';
 import ColorPicker from './ColorPicker';
+import Form from './Forms/Forms';
 import TodoList from './TodoList';
 import initialsTodos from './todos.json';
 
@@ -27,15 +28,6 @@ class App extends Component {
     }));
   };
 
-  hendleChange = event => {
-    const { name, tag } = event.currentTarget;
-    this.setState({ [name]: tag });
-  };
-
-  hendleSubmit = event => {
-    event.preventDefault();
-    console.log(this.state);
-  };
   /*hendelNameChange = event => {
     //console.log(event.currentTarget.value)
     this.setState({name: event.currentTarget.value})
@@ -64,34 +56,10 @@ class App extends Component {
         <h1>Color Picker</h1>
         <ColorPicker options={colorPickerOptions} />
 
-        <form onSubmit={this.hendleSubmit}>
-          <label /*htmlFor="id"*/>
-            Ім'я
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.hendleChange}
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-              required
-            />
-          </label>
+        <h1>Form</h1>
+        <Form />
 
-          <label /*htmlFor="id"*/>
-            Прізвище
-            <input
-              type="text"
-              name="tag"
-              value={this.state.tag}
-              onChange={this.hendleChange}
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-              required
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
+        <h1>Todo</h1>
         <div>
           <p>Загальна кіль-ть: {totalTodosCount} </p>
           <p>Кіль-ть виконаних todo: {completedTodosCount}</p>
