@@ -1,7 +1,35 @@
-import React, { Component } from 'react';
+import { useState } from 'react';
 import './ColorPicker.css';
 
-class ColorPicker extends Component {
+function ColorPicker ({options}) {
+const [activeOptionIdx, setActiveOptionIdx] = useState(0)
+
+/*const setActiveIdx = index => {
+  setActiveOptionIdx(index)
+}*/
+
+  return (
+    <div className="ColorPicker">
+      <h2 className="ColorPicker__title">Color Picker</h2>
+      {/*<p>Обрали колір: {label}</p>*/}
+      <div>
+        {this.props.options.map(({ label, color }, index) => (
+          <button
+            key={label}
+            //className={this.makeOptionClassName(index)}
+            style={{
+              backgroundColor: color,
+            }}
+            onClick={() => setActiveOptionIdx(index)}
+          ></button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/*
+class OLdColorPicker extends Component {
   state = {
     activeOptionIdx: 0,
   };
@@ -22,7 +50,7 @@ this.setState({activeOptionIdx: index})
   render() {
     const { activeOptionIdx } = this.state;
     const { options } = this.props;
-    const {label} = /*this.props.*/options[/*this.state.*/activeOptionIdx];
+    const {label} = options[activeOptionIdx];
     
     return (
       <div className="ColorPicker">
@@ -44,5 +72,5 @@ this.setState({activeOptionIdx: index})
     );
   }
 }
-
+*/
 export default ColorPicker;
