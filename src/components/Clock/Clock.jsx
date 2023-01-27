@@ -6,10 +6,16 @@ function Clock() {
   const intervalId = useRef(null); //current
 
   useEffect(() => {
-    intervalId.current = setInterval(() => {
+    intervalId.current = 
+    setInterval(() => {
       console.log('Это интервал каждые 1000ms ' + Date.now());
       setTime(new Date());
-    }, 1000);
+    }, 2000);
+    return () => {
+        console.log('Це функція очисти перед наступним викликом useEffect')
+    stop()
+    }
+
   }, []);
 
   const stop = () => {
