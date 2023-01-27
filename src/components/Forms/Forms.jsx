@@ -1,14 +1,16 @@
-import { useState } from 'react';
+//import { useState, useEffect } from 'react';
 //import PropTypes from 'prop-types';
 import '../Forms/Forms';
+import useLocalStorage from '../../hooks/useLocalStorage'
+
 
 function Form() {
-  const [name, setName] = useState('');
-  const [tag, setTag] = useState('');
+  const [name, setName] = useLocalStorage('name', '');
+  const [tag, setTag] = useLocalStorage('tag', '');
 
   const handleChange = e => {
-    const {name, value} = e.target
-    //console.log(e.target.name);
+    const { name, value } = e.target;
+
     switch (name) {
       case 'name':
         setName(value);
@@ -17,18 +19,18 @@ function Form() {
         setTag(value);
         break;
 
-        default: 
+      default:
         return;
     }
   };
-  //console.log(name)
-  // console.log(setName)
-  /*const handleNameChange = e => {
-    setName(e.target.value);
-  };
-  const handleTagChange = e => {
-    setTag(e.target.value)
-  }*/
+/*
+  useEffect(() => {
+    window.localStorage.setItem('name', JSON.stringify(name));
+  }, [name]);
+
+  useEffect(() => {
+    window.localStorage.setItem('tag', JSON.stringify(tag));
+  }, [tag]);*/
 
   return (
     <form className="Form">

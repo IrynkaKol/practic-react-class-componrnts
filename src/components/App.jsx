@@ -3,6 +3,7 @@ import Counter from './Counter';
 import Dropdown from './Dropdown';
 import ColorPicker from './ColorPicker';
 import Form from './Forms/Forms';
+import Clock from './Clock/Clock';
 import TodoList from './TodoList';
 import initialsTodos from './todos.json';
 
@@ -55,6 +56,8 @@ class App extends Component {
 
         <h1>Color Picker</h1>
         <ColorPicker options={colorPickerOptions} />
+        <h1>Clock</h1>
+        <Clock />
 
         <h1>Form</h1>
         <Form />
