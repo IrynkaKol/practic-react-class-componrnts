@@ -5,15 +5,16 @@ import './Counter.css';
 import { useReducer } from 'react';
 
 function countReducer(state, nexState) {
-  
-      return state + nexState
-  
+  return state + nexState;
+}
+function init(initialState) {
+  return initialState
 }
 
 function Counter() {
   //const [value, setValue] = useState(0);
 
-  const [value, setValue] = useReducer(countReducer, 0);
+  const [value, setValue] = useReducer(countReducer, 0, init);
 
   const handleIncrement = () => {
     setValue(prevState => prevState + 1);
