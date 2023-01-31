@@ -1,31 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Value from './Value';
 import Controls from './Controls';
 import './Counter.css';
+import { useReducer } from 'react';
+
+function countReducer(state, nexState) {
+  
+      return state + nexState
+  
+}
 
 function Counter() {
-  
-  const [value, setValue] = useState(0);
+  //const [value, setValue] = useState(0);
+
+  const [value, setValue] = useReducer(countReducer, 0);
 
   const handleIncrement = () => {
-    setValue(prevState => prevState + 1)
+    setValue(prevState => prevState + 1);
   };
 
   const handleDecrement = () => {
-    setValue(prevState => prevState - 1)
-  }
+    setValue(prevState => prevState - 1);
+  };
 
-  useEffect (() => {
-    console.log('Запускається useEffect' + Date.now())
-  }, [value])
+  useEffect(() => {
+    console.log('Запускається useEffect' + Date.now());
+  }, [value]);
 
   return (
     <div className="Counter">
       <Value onValue={value} />
-      <Controls
-        onIncrement={handleIncrement}
-        onDecrement={handleDecrement}
-      />
+      <Controls onIncrement={handleIncrement} onDecrement={handleDecrement} />
     </div>
   );
 }
