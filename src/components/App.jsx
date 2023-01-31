@@ -48,7 +48,9 @@ class App extends Component {
 
     return (
       <>
-        <h1>Стан компонента</h1>
+        
+
+        <h1>Counter</h1>
         <Counter initialValue={0} />
 
         <h1>Меню</h1>
