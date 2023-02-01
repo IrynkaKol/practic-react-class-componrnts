@@ -4,33 +4,46 @@ import Controls from './Controls';
 import './Counter.css';
 import { useReducer } from 'react';
 
-function countReducer(state, nexState) {
-  return state + nexState;
+function reduce (state, action) {
+  switch(action.type){
+    case 'increment':
+      return {
+        ...state,
+        value: state.value + 1
+      }
+      case 'decrement':
+        return {
+          ...state,
+        value: state.value - 1
+        }
+        default:
+         return state
+  }
 }
-function init(initialState) {
-  return initialState
+const initialState = {
+  value: 0
 }
 
 function Counter() {
   //const [value, setValue] = useState(0);
 
-  const [value, setValue] = useReducer(countReducer, 0, init);
+  const [state, dispatch] = useReducer(reduce, initialState);
 
   const handleIncrement = () => {
-    setValue(prevState => prevState + 1);
+    dispatch({type: 'increment'})
   };
 
   const handleDecrement = () => {
-    setValue(prevState => prevState - 1);
+    dispatch({type: 'decrement'})
   };
 
   useEffect(() => {
     console.log('Запускається useEffect' + Date.now());
-  }, [value]);
+  }, [state]);
 
   return (
     <div className="Counter">
-      <Value onValue={value} />
+      <Value onValue={state.value} />
       <Controls onIncrement={handleIncrement} onDecrement={handleDecrement} />
     </div>
   );

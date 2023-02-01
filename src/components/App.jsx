@@ -6,6 +6,7 @@ import Form from './Forms/Forms';
 import Clock from './Clock/Clock';
 import TodoList from './TodoList';
 import initialsTodos from './todos.json';
+import Friends from './Friends/Fiends';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -72,6 +73,9 @@ class App extends Component {
         </div>
 
         <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
+
+        <h1>Friends</h1>
+        <Friends />
       </>
     );
   }
