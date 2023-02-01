@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import Value from './Value';
 import Controls from './Controls';
 import './Counter.css';
@@ -48,6 +48,12 @@ function Counter() {
     </div>
   );
 }
+
+
+
+
+
+
 
 /*
 class OldCounter extends Component {

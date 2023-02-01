@@ -7,6 +7,8 @@ import Clock from './Clock/Clock';
 import TodoList from './TodoList';
 import initialsTodos from './todos.json';
 import Friends from './Friends/Fiends';
+import News from './News/News'
+import UserMenu from './UserMenu/UserMenu'
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -76,6 +78,12 @@ class App extends Component {
 
         <h1>Friends</h1>
         <Friends />
+
+        <h1>News</h1>
+        <News />
+
+        <h1>UserMenu</h1>
+        <UserMenu />
       </>
     );
   }
